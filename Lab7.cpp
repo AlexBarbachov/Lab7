@@ -1,10 +1,13 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
+
 
 using namespace std;
 
 
 void displayArray(string *arr, int size);
+string* reverseArray(string *arr, int size);
 
 
 int main()
@@ -17,6 +20,16 @@ int main()
         cout << "Enter name " << i + 1 << ": ";
         cin >> names[i];
     }
+
+    cout << "Original array:";
+    displayArray(names, SIZE);
+
+
+    // reverse array
+    names = reverseArray(names, SIZE);
+    cout << "Reversed array: ";
+    displayArray(names, SIZE);
+
 
 
 
@@ -31,6 +44,12 @@ void displayArray(string *arr, int size)
         cout << " " << arr[i];
     }
     cout << endl;
+}
+
+string* reverseArray(string *arr, int size)
+{
+    reverse(arr, arr + size);
+    return arr;
 }
 
 
